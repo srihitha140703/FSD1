@@ -1,0 +1,35 @@
+<html>
+<head>
+  <title>To-Do List</title>
+  <style>
+    ul {
+      list-style-type: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>To-Do List</h1>
+  <form id="todoForm">
+    <input type="text" id="todoInput" placeholder="Enter a task">
+    <button type="submit">Add Task</button>
+  </form>
+  <ul id="todoList">
+  </ul>
+  <script>
+    const form=document.getElementById('todoForm');
+    const input=document.getElementById('todoInput');
+    const list=document.getElementById('todoList');
+    function addTask(e) {
+      e.preventDefault();
+      const task=input.value;
+      if(task!=='') {
+        const li=document.createElement('li');
+        li.textContent=task;
+        list.appendChild(li);
+        input.value='';
+      }
+    }
+    form.addEventListener('submit', addTask);
+  </script>
+</body>
+</html>
